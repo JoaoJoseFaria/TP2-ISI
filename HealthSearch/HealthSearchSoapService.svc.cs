@@ -153,6 +153,25 @@ namespace HealthSearch
             return true;
         }
 
+        public int AddLocalizacao(Localizacao localizacao)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesLocalizacao())
+                {
+
+                    db.Localizacao.Add(localizacao);
+                    db.SaveChanges();
+
+                    return localizacao.id;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         #endregion
 
         #region Prestador
@@ -278,6 +297,25 @@ namespace HealthSearch
             return true;
         }
 
+        public int AddPrestador(Prestador prestador)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesPrestador())
+                {
+
+                    db.Prestador.Add(prestador);
+                    db.SaveChanges();
+
+                    return prestador.id;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         #endregion
 
         #region Servico
@@ -400,6 +438,25 @@ namespace HealthSearch
             return true;
         }
 
+        public int AddServico(Servico servico)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesServico())
+                {
+
+                    db.Servico.Add(servico);
+                    db.SaveChanges();
+
+                    return servico.id;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
         #endregion
 
         #region PrestadorServico
@@ -456,6 +513,25 @@ namespace HealthSearch
                 throw new FaultException(ex.Message);
             }
             return true;
+        }
+
+        public bool AddPrestadorServico(PrestadorServico prestadorServico)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesPrestadorServico())
+                {
+
+                    db.PrestadorServico.Add(prestadorServico);
+                    db.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
         }
 
         #endregion

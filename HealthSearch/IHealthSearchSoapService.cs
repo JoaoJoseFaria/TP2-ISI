@@ -29,6 +29,9 @@ namespace HealthSearch
         [OperationContract]
         bool HardDeletePrestador(string id);
 
+        [OperationContract]
+        int AddPrestador(Prestador prestador);
+
         #endregion
 
         #region Localizacao
@@ -48,6 +51,9 @@ namespace HealthSearch
         [OperationContract]
         bool HardDeleteLocalizacao(string id);
 
+        [OperationContract]
+        int AddLocalizacao(Localizacao localizacao);
+
         #endregion
 
         #region Servico
@@ -66,6 +72,16 @@ namespace HealthSearch
 
         [OperationContract]
         bool HardDeleteServico(string id);
+
+        [OperationContract]
+        int AddServico(Servico servico);
+
+        #endregion
+
+        #region PrestadorServico
+
+        [OperationContract]
+        bool AddPrestadorServico(PrestadorServico prestadorServico);
 
         #endregion
     }
