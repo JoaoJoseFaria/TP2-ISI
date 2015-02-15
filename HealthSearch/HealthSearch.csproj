@@ -39,6 +39,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Data.Edm.5.6.2\lib\net40\Microsoft.Data.Edm.dll</HintPath>
@@ -64,6 +70,8 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Spatial, Version=5.6.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.6.2\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
@@ -87,13 +95,125 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HealthSearchSoapService.svc" />
+    <Content Include="ModelLocalizacao.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelLocalizacao.edmx</DependentUpon>
+      <LastGenOutput>ModelLocalizacao.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelLocalizacao.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelLocalizacao.edmx</DependentUpon>
+      <LastGenOutput>ModelLocalizacao.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelPrestador.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPrestador.edmx</DependentUpon>
+      <LastGenOutput>ModelPrestador.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelPrestador.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPrestador.edmx</DependentUpon>
+      <LastGenOutput>ModelPrestador.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelPrestadorServico.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPrestadorServico.edmx</DependentUpon>
+      <LastGenOutput>ModelPrestadorServico.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelPrestadorServico.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPrestadorServico.edmx</DependentUpon>
+      <LastGenOutput>ModelPrestadorServico.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelServico.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelServico.edmx</DependentUpon>
+      <LastGenOutput>ModelServico.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelServico.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelServico.edmx</DependentUpon>
+      <LastGenOutput>ModelServico.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HealthSearchSoapService.svc.cs">
       <DependentUpon>HealthSearchSoapService.svc</DependentUpon>
     </Compile>
     <Compile Include="IHealthSearchSoapService.cs" />
+    <Compile Include="Localizacao.cs">
+      <DependentUpon>ModelLocalizacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelLocalizacao.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLocalizacao.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelLocalizacao.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLocalizacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelLocalizacao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLocalizacao.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPrestador.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPrestador.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPrestador.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPrestador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPrestador.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPrestador.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPrestadorServico.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPrestadorServico.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPrestadorServico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPrestadorServico.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelPrestadorServico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPrestadorServico.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelServico.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelServico.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelServico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelServico.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelServico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelServico.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Prestador.cs">
+      <DependentUpon>ModelPrestador.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrestadorServico.cs">
+      <DependentUpon>ModelPrestadorServico.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servico.cs">
+      <DependentUpon>ModelServico.tt</DependentUpon>
+    </Compile>
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -104,12 +224,43 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <EntityDeploy Include="ModelLocalizacao.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelLocalizacao.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelLocalizacao.edmx.diagram">
+      <DependentUpon>ModelLocalizacao.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="ModelServico.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelServico.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelServico.edmx.diagram">
+      <DependentUpon>ModelServico.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="ModelPrestador.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelPrestador.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelPrestador.edmx.diagram">
+      <DependentUpon>ModelPrestador.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="ModelPrestadorServico.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelPrestadorServico.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ModelPrestadorServico.edmx.diagram">
+      <DependentUpon>ModelPrestadorServico.edmx</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
