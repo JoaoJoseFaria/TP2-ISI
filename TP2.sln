@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "TP2", "TP2\TP2.ccproj", "{0FAF42C0-764D-47A5-9573-71B89BADFA99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthSearch", "HealthSearch\HealthSearch.csproj", "{2E6DC41D-D59D-4790-8213-78C0B78D5299}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FAF42C0-764D-47A5-9573-71B89BADFA99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FAF42C0-764D-47A5-9573-71B89BADFA99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FAF42C0-764D-47A5-9573-71B89BADFA99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FAF42C0-764D-47A5-9573-71B89BADFA99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E6DC41D-D59D-4790-8213-78C0B78D5299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E6DC41D-D59D-4790-8213-78C0B78D5299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E6DC41D-D59D-4790-8213-78C0B78D5299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E6DC41D-D59D-4790-8213-78C0B78D5299}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
