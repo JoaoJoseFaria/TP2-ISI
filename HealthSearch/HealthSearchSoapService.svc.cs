@@ -45,7 +45,7 @@ namespace HealthSearch
             }
         }
 
-        public bool updateLocalizacao(Localizacao localizacao)
+        public bool UpdateLocalizacao(Localizacao localizacao)
         {
             try
             {
@@ -69,6 +69,88 @@ namespace HealthSearch
             {
                 throw new FaultException(ex.Message);
             }
+        }
+
+        public bool DeleteLocalizacao(string id)
+        {
+            try
+            {
+                using (var dbLocalizacao = new HealthSearchEntitiesLocalizacao())
+                {
+                    int localizacaoId = Convert.ToInt32(id);
+                    Localizacao aux = dbLocalizacao.Localizacao.SingleOrDefault(p => p.id == localizacaoId);
+
+                    aux.eliminado = DateTime.Now;
+
+                    dbLocalizacao.SaveChanges();
+
+                    //Desactivar os prestadores com a localização desactivada
+                    using (var dbPrestadores = new HealthSearchEntitiesPrestador())
+                    {
+                        var prestList = from prestador in dbPrestadores.Prestador.ToList()
+                                        where prestador.idLocalizacao == localizacaoId
+                                        select prestador;
+
+                        foreach (var prestador in prestList)
+                        {
+                            try
+                            {
+                                DeletePrestador(prestador.id.ToString());
+
+                                //Desactivar os servicos dos prestadores desactivados
+                                using (var dbPrestadoresServicos = new HealthSearchEntitiesPrestadorServico())
+                                {
+                                    var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
+                                                        where prestadorServico.idPrestador == prestador.id
+                                                        select prestadorServico;
+
+                                    foreach (var prestServ in prestServList)
+                                    {
+                                        try
+                                        {
+                                            DeletePrestadorServico(prestServ.idPrestador.ToString());
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            throw new FaultException(ex.Message);
+                                        }
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new FaultException(ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
+        }
+
+        public bool HardDeleteLocalizacao(string id)
+        {
+            try
+            {
+                using (var dbLocalizacao = new HealthSearchEntitiesLocalizacao())
+                {
+                    int localizacaoId = Convert.ToInt32(id);
+                    Localizacao aux = dbLocalizacao.Localizacao.SingleOrDefault(p => p.id == localizacaoId);
+
+                    dbLocalizacao.Localizacao.Remove(aux);
+
+                    dbLocalizacao.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
         }
 
         #endregion
@@ -134,6 +216,68 @@ namespace HealthSearch
             }
         }
 
+        public bool DeletePrestador (string id)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesPrestador())
+                {
+                    int prestadorId = Convert.ToInt32(id);
+                    Prestador aux = db.Prestador.SingleOrDefault(p => p.id == prestadorId);
+
+                    aux.eliminado = DateTime.Now;
+
+                    db.SaveChanges();
+
+                    //Desactivar os servicos dos prestadores desactivados
+                    using (var dbPrestadoresServicos = new HealthSearchEntitiesPrestadorServico())
+                    {
+                        var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
+                                            where prestadorServico.idPrestador == prestadorId
+                                            select prestadorServico;
+
+                        foreach (var prestServ in prestServList)
+                        {
+                            try
+                            {
+                                DeletePrestadorServico(prestServ.idPrestador.ToString());
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new FaultException(ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
+        }
+
+        public bool HardDeletePrestador(string id)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesPrestador())
+                {
+                    int prestadorId = Convert.ToInt32(id);
+                    Prestador aux = db.Prestador.SingleOrDefault(p => p.id == prestadorId);
+
+                    db.Prestador.Remove(aux);
+
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
+        }
+
         #endregion
 
         #region Servico
@@ -170,7 +314,7 @@ namespace HealthSearch
             }
         }
 
-        public bool updateServico (Servico servico)
+        public bool UpdateServico (Servico servico)
         {
             try
             {
@@ -192,6 +336,126 @@ namespace HealthSearch
             {
                 throw new FaultException(ex.Message);
             }
+        }
+
+        public bool DeleteServico(string id)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesServico())
+                {
+                    int servicoId = Convert.ToInt32(id);
+                    Servico aux = db.Servico.SingleOrDefault(p => p.id == servicoId);
+
+                    aux.eliminado = DateTime.Now;
+
+                    db.SaveChanges();
+
+                    //Desactivar os servicos por prestador desactivados
+                    using (var dbPrestadoresServicos = new HealthSearchEntitiesPrestadorServico())
+                    {
+                        var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
+                                            where prestadorServico.idServico == servicoId
+                                            select prestadorServico;
+
+                        foreach (var prestServ in prestServList)
+                        {
+                            try
+                            {
+                                DeleteServicoPrestador(prestServ.idServico.ToString());
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new FaultException(ex.Message);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
+        }
+
+        public bool HardDeleteServico(string id)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesServico())
+                {
+                    int servicoId = Convert.ToInt32(id);
+                    Servico aux = db.Servico.SingleOrDefault(p => p.id == servicoId);
+
+                    db.Servico.Remove(aux);
+
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
+        }
+
+        #endregion
+
+        #region PrestadorServico
+
+        private bool DeletePrestadorServico (string id)
+        {
+            try
+            {
+                //Desactivar os servicos por prestador desactivados
+                using (var dbPrestadoresServicos = new HealthSearchEntitiesPrestadorServico())
+                {
+                    int prestadorServicoId = Convert.ToInt32(id);
+                    var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
+                                        where prestadorServico.idPrestador == prestadorServicoId
+                                        select prestadorServico;
+
+                    foreach (var prestServ in prestServList)
+                    {
+                        prestServ.eliminado = DateTime.Now;
+
+                        dbPrestadoresServicos.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
+        }
+
+        private bool DeleteServicoPrestador(string id)
+        {
+            try
+            {
+                //Desactivar os servicos por prestador desactivados
+                using (var dbPrestadoresServicos = new HealthSearchEntitiesPrestadorServico())
+                {
+                    int prestadorServicoId = Convert.ToInt32(id);
+                    var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
+                                        where prestadorServico.idServico == prestadorServicoId
+                                        select prestadorServico;
+
+                    foreach (var prestServ in prestServList)
+                    {
+                        prestServ.eliminado = DateTime.Now;
+
+                        dbPrestadoresServicos.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return true;
         }
 
         #endregion

@@ -23,6 +23,12 @@ namespace HealthSearch
         [OperationContract]
         bool UpdatePrestador(Prestador prestador);
 
+        [OperationContract]
+        bool DeletePrestador(string id);
+
+        [OperationContract]
+        bool HardDeletePrestador(string id);
+
         #endregion
 
         #region Localizacao
@@ -34,7 +40,13 @@ namespace HealthSearch
         Localizacao GetLocalizacaoById(string id);
 
         [OperationContract]
-        bool updateLocalizacao(Localizacao localizacao);
+        bool UpdateLocalizacao(Localizacao localizacao);
+
+        [OperationContract]
+        bool DeleteLocalizacao(string id);
+
+        [OperationContract]
+        bool HardDeleteLocalizacao(string id);
 
         #endregion
 
@@ -47,7 +59,13 @@ namespace HealthSearch
         Servico GetServicoById(string id);
 
         [OperationContract]
-        bool updateServico(Servico servico);
+        bool UpdateServico(Servico servico);
+
+        [OperationContract]
+        bool DeleteServico(string id);
+
+        [OperationContract]
+        bool HardDeleteServico(string id);
 
         #endregion
     }
