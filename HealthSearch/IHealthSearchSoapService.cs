@@ -21,6 +21,9 @@ namespace HealthSearch
         Prestador GetPrestadorById(string id);
 
         [OperationContract]
+        List<Prestador> GetPestadorByServico(string id);
+
+        [OperationContract]
         bool UpdatePrestador(Prestador prestador);
 
         [OperationContract]

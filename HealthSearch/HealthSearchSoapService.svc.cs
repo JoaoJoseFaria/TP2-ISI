@@ -208,6 +208,35 @@ namespace HealthSearch
             }
         }
 
+        public List<Prestador> GetPestadorByServico(string id)
+        {
+            List<Prestador> aux = new List<Prestador>();
+            int prestadorId = Convert.ToInt32(id);
+            try
+            {
+                using (var dbPrestadorServico = new HealthSearchEntitiesPrestadorServico())
+                {
+                    using (var dbPrestadores = new HealthSearchEntitiesPrestador())
+                    {
+                        var prestList = from prestServ in dbPrestadorServico.PrestadorServico
+                                        join prest in dbPrestadores.Prestador on prestServ.idPrestador equals prest.id
+                                        where prestServ.idServico == prestadorId
+                                        select prest;
+
+                        foreach (Prestador prest in prestList)
+                        {
+                            aux.Add(prest);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return aux;
+        }
+
         public bool UpdatePrestador(Prestador prestador)
         {
             try
