@@ -26,5 +26,7 @@ namespace HealthSearch
         }
     
         public virtual DbSet<PrestadorServico> PrestadorServico { get; set; }
+        public virtual DbSet<Prestador> Prestador { get; set; }
+        public virtual DbSet<Servico> Servico { get; set; }
     }
 }

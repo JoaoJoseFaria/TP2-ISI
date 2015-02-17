@@ -211,22 +211,27 @@ namespace HealthSearch
         public List<Prestador> GetPestadorByServico(string id)
         {
             List<Prestador> aux = new List<Prestador>();
-            int prestadorId = Convert.ToInt32(id);
+            int servicoId = Convert.ToInt32(id);
             try
             {
                 using (var dbPrestadorServico = new HealthSearchEntitiesPrestadorServico())
                 {
-                    using (var dbPrestadores = new HealthSearchEntitiesPrestador())
-                    {
-                        var prestList = from prestServ in dbPrestadorServico.PrestadorServico
-                                        join prest in dbPrestadores.Prestador on prestServ.idPrestador equals prest.id
-                                        where prestServ.idServico == prestadorId
-                                        select prest;
+                    var prestList = from prestServ in dbPrestadorServico.PrestadorServico
+                                    where prestServ.idServico == servicoId
+                                    select new Prestador
+                                    {
+                                        id = prestServ.Prestador.id,
+                                        idLocalizacao = prestServ.Prestador.idLocalizacao,
+                                        nome = prestServ.Prestador.nome,
+                                        morada = prestServ.Prestador.morada,
+                                        telefone = prestServ.Prestador.telefone,
+                                        email = prestServ.Prestador.email,
+                                        eliminado = prestServ.Prestador.eliminado
+                                    };
 
-                        foreach (Prestador prest in prestList)
-                        {
-                            aux.Add(prest);
-                        }
+                    foreach (Prestador prest in prestList)
+                    {
+                        aux.Add(prest);
                     }
                 }
             }

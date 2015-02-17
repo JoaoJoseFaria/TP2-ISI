@@ -205,14 +205,14 @@
       <DependentUpon>ModelServico.edmx</DependentUpon>
     </Compile>
     <Compile Include="Prestador.cs">
-      <DependentUpon>ModelPrestador.tt</DependentUpon>
+      <DependentUpon>ModelPrestadorServico.tt</DependentUpon>
     </Compile>
     <Compile Include="PrestadorServico.cs">
       <DependentUpon>ModelPrestadorServico.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servico.cs">
-      <DependentUpon>ModelServico.tt</DependentUpon>
+      <DependentUpon>ModelPrestadorServico.tt</DependentUpon>
     </Compile>
     <Compile Include="WebRole.cs" />
   </ItemGroup>
