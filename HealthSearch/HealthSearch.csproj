@@ -214,6 +214,39 @@
     <Compile Include="Servico.cs">
       <DependentUpon>ModelPrestadorServico.tt</DependentUpon>
     </Compile>
+    <Compile Include="StoredProcedureSpLimparTabelas.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProcedureSpLimparTabelas.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoredProcedureSpLimparTabelas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProcedureSpLimparTabelas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StoredProcedureSpLimparTabelas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProcedureSpLimparTabelas.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewVwPrestadorLocalizacao.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewVwPrestadorLocalizacao.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewVwPrestadorLocalizacao.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewVwPrestadorLocalizacao.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewVwPrestadorLocalizacao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewVwPrestadorLocalizacao.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="VWPrestadorLocalizacao.cs">
+      <DependentUpon>ViewVwPrestadorLocalizacao.tt</DependentUpon>
+    </Compile>
     <Compile Include="WebRole.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +256,26 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="StoredProcedureSpLimparTabelas.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoredProcedureSpLimparTabelas.edmx</DependentUpon>
+      <LastGenOutput>StoredProcedureSpLimparTabelas.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="StoredProcedureSpLimparTabelas.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoredProcedureSpLimparTabelas.edmx</DependentUpon>
+      <LastGenOutput>StoredProcedureSpLimparTabelas.cs</LastGenOutput>
+    </Content>
+    <Content Include="ViewVwPrestadorLocalizacao.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ViewVwPrestadorLocalizacao.edmx</DependentUpon>
+      <LastGenOutput>ViewVwPrestadorLocalizacao.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ViewVwPrestadorLocalizacao.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ViewVwPrestadorLocalizacao.edmx</DependentUpon>
+      <LastGenOutput>ViewVwPrestadorLocalizacao.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
     <EntityDeploy Include="ModelLocalizacao.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -251,6 +304,20 @@
     </EntityDeploy>
     <Content Include="ModelPrestadorServico.edmx.diagram">
       <DependentUpon>ModelPrestadorServico.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="ViewVwPrestadorLocalizacao.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ViewVwPrestadorLocalizacao.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ViewVwPrestadorLocalizacao.edmx.diagram">
+      <DependentUpon>ViewVwPrestadorLocalizacao.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="StoredProcedureSpLimparTabelas.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StoredProcedureSpLimparTabelas.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="StoredProcedureSpLimparTabelas.edmx.diagram">
+      <DependentUpon>StoredProcedureSpLimparTabelas.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -17,5 +17,8 @@ namespace HealthSearch
         public int idPrestador { get; set; }
         public int idServico { get; set; }
         public Nullable<System.DateTime> eliminado { get; set; }
+    
+        public virtual Prestador Prestador { get; set; }
+        public virtual Servico Servico { get; set; }
     }
 }

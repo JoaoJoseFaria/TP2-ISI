@@ -24,6 +24,10 @@ namespace HealthSearch
         List<Prestador> GetPestadorByServico(string id);
 
         [OperationContract]
+        List<Prestador> GetPestadorByLocalizacaoo(string pais = null, string regiao = null,
+                            string distrito = null, string concelho = null);
+
+        [OperationContract]
         bool UpdatePrestador(Prestador prestador);
 
         [OperationContract]
@@ -86,6 +90,13 @@ namespace HealthSearch
         [OperationContract]
         bool AddPrestadorServico(PrestadorServico prestadorServico);
 
+        #endregion
+
+        #region Manutenção
+
+        [OperationContract]
+        int LimparTabelas(string data); 
+        
         #endregion
     }
 }

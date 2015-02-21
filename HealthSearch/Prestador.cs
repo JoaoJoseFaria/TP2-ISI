@@ -14,6 +14,11 @@ namespace HealthSearch
     
     public partial class Prestador
     {
+        public Prestador()
+        {
+            this.PrestadorServico = new HashSet<PrestadorServico>();
+        }
+    
         public int id { get; set; }
         public int idLocalizacao { get; set; }
         public string nome { get; set; }
@@ -21,5 +26,7 @@ namespace HealthSearch
         public string telefone { get; set; }
         public string email { get; set; }
         public Nullable<System.DateTime> eliminado { get; set; }
+    
+        public virtual ICollection<PrestadorServico> PrestadorServico { get; set; }
     }
 }

@@ -214,24 +214,66 @@ namespace HealthSearch
             int servicoId = Convert.ToInt32(id);
             try
             {
-                using (var dbPrestadorServico = new HealthSearchEntitiesPrestadorServico())
+                using (var db = new HealthSearchEntitiesPrestadorServico())
                 {
-                    var prestList = from prestServ in dbPrestadorServico.PrestadorServico
+                    var prestList = from prestServ in db.PrestadorServico
                                     where prestServ.idServico == servicoId
-                                    select new Prestador
-                                    {
-                                        id = prestServ.Prestador.id,
-                                        idLocalizacao = prestServ.Prestador.idLocalizacao,
-                                        nome = prestServ.Prestador.nome,
-                                        morada = prestServ.Prestador.morada,
-                                        telefone = prestServ.Prestador.telefone,
-                                        email = prestServ.Prestador.email,
-                                        eliminado = prestServ.Prestador.eliminado
-                                    };
+                                    select prestServ.Prestador;
 
                     foreach (Prestador prest in prestList)
                     {
-                        aux.Add(prest);
+                        aux.Add(new Prestador
+                        {
+                            id=prest.id,
+                            idLocalizacao=prest.idLocalizacao,
+                            nome=prest.nome,
+                            morada=prest.morada,
+                            telefone=prest.telefone,
+                            email=prest.email,
+                            eliminado=prest.eliminado
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+            return aux;
+        }
+
+        public List<Prestador> GetPestadorByLocalizacaoo(string pais = null, string regiao = null,
+                            string distrito = null, string concelho = null)
+        {
+            List<Prestador> aux = new List<Prestador>();
+            try
+            {
+                using (var db = new HealthSearchEntitiesVwPrestadorLocalizacao())
+                {
+                    var prestList = from prest in db.VwPrestadorLocalizacao
+                                    select prest;
+
+                    if (!string.IsNullOrWhiteSpace(pais))
+                        prestList = prestList.Where(p => p.pais == pais);
+                    if (!string.IsNullOrWhiteSpace(regiao))
+                        prestList = prestList.Where(p => p.regiao == regiao);
+                    if (!string.IsNullOrWhiteSpace(distrito))
+                        prestList = prestList.Where(p => p.distrito == distrito);
+                    if (!string.IsNullOrWhiteSpace(concelho))
+                        prestList = prestList.Where(p => p.concelho == concelho);
+
+                    foreach (VwPrestadorLocalizacao prest in prestList)
+                    {
+                        aux.Add(new Prestador
+                        {
+                            id = prest.id,
+                            idLocalizacao = prest.idLocalizacao,
+                            nome = prest.nome,
+                            morada = prest.morada,
+                            telefone = prest.telefone,
+                            email = prest.email,
+                            eliminado = prest.eliminado
+                        });
                     }
                 }
             }
@@ -560,6 +602,25 @@ namespace HealthSearch
                     db.SaveChanges();
 
                     return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new FaultException(ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region Manutenção
+
+        public int LimparTabelas(string data)
+        {
+            try
+            {
+                using (var db = new HealthSearchEntitiesSpLimparTabelas())
+                {
+                    return db.SpLimparTabelas(data);
                 }
             }
             catch (Exception ex)

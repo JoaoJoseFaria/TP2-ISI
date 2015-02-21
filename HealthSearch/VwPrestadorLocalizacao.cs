@@ -12,18 +12,18 @@ namespace HealthSearch
     using System;
     using System.Collections.Generic;
     
-    public partial class Servico
+    public partial class VwPrestadorLocalizacao
     {
-        public Servico()
-        {
-            this.PrestadorServico = new HashSet<PrestadorServico>();
-        }
-    
         public int id { get; set; }
-        public string codigo { get; set; }
-        public string descricao { get; set; }
+        public int idLocalizacao { get; set; }
+        public string nome { get; set; }
+        public string morada { get; set; }
+        public string telefone { get; set; }
+        public string email { get; set; }
         public Nullable<System.DateTime> eliminado { get; set; }
-    
-        public virtual ICollection<PrestadorServico> PrestadorServico { get; set; }
+        public string pais { get; set; }
+        public string regiao { get; set; }
+        public string distrito { get; set; }
+        public string concelho { get; set; }
     }
 }
