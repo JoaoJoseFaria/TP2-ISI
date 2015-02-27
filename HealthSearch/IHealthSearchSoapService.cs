@@ -8,6 +8,9 @@ using System.Text;
 
 namespace HealthSearch
 {
+    /// <summary>
+    /// Interface serviço SOAP
+    /// </summary>
     [ServiceContract]
     public interface IHealthSearchSoapService
     {

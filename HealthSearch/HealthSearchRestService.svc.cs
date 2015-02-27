@@ -7,6 +7,9 @@ using System.Text;
 
 namespace HealthSearch
 {
+    /// <summary>
+    /// Classe que implementa o serviço REST
+    /// </summary>
     public class HealthSearchRestService : IHealthSearchRestService
     {
         #region XML

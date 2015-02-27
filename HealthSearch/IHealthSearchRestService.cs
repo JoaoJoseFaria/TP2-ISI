@@ -8,6 +8,9 @@ using System.Text;
 
 namespace HealthSearch
 {
+    /// <summary>
+    /// Interface serviço REST
+    /// </summary>
     [ServiceContract]
     public interface IHealthSearchRestService
     {
@@ -62,7 +65,7 @@ namespace HealthSearch
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
             BodyStyle = WebMessageBodyStyle.Wrapped,
-            UriTemplate = "/PrestadoresLocalizacao/Xml?{pais}&{regiao}&{distrito}&{concelho}")]
+            UriTemplate = "/PrestadoresLocalizacao/Xml?pais={pais}&regiao={regiao}&distrito={distrito}&concelho={concelho}")]
         List<Prestador> GetPestadorByLocalizacaoXml(string pais = null, string regiao = null,
                             string distrito = null, string concelho = null);
 
@@ -351,7 +354,7 @@ namespace HealthSearch
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
-            UriTemplate = "/PrestadoresLocalizacao/Json?{pais}&{regiao}&{distrito}&{concelho}")]
+            UriTemplate = "/PrestadoresLocalizacao/Json?pais={pais}&regiao={regiao}&distrito={distrito}&concelho={concelho}")]
         List<Prestador> GetPestadorByLocalizacaoJson(string pais = null, string regiao = null,
                             string distrito = null, string concelho = null);
 

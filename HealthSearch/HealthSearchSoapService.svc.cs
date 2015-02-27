@@ -8,11 +8,18 @@ using System.Text;
 
 namespace HealthSearch
 {
+    /// <summary>
+    /// Classe que implementa o serviço SOAP
+    /// </summary>
     public class HealthSearchSoapService : IHealthSearchSoapService
     {
 
         #region Localizacao
 
+        /// <summary>
+        /// Devolve todas as localizações
+        /// </summary>
+        /// <returns>Lista de localizações</returns>
         public List<Localizacao> GetAllLocalizacao()
         {
             try
@@ -28,6 +35,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Devolve localização pelo id
+        /// </summary>
+        /// <param name="id">Id da localização</param>
+        /// <returns>Localização</returns>
         public Localizacao GetLocalizacaoById(string id)
         {
             try
@@ -45,6 +57,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Actualiza uma localização
+        /// </summary>
+        /// <param name="localizacao">Localização actualizada</param>
+        /// <returns>True caso actualiza, false caso contrário</returns>
         public bool UpdateLocalizacao(Localizacao localizacao)
         {
             try
@@ -71,6 +88,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Marca localização como eliminada
+        /// </summary>
+        /// <param name="id">Id da localização a marcar</param>
+        /// <returns>True caso marcada, false caso contrário</returns>
         public bool DeleteLocalizacao(string id)
         {
             try
@@ -132,6 +154,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Elimina localização da base de dados
+        /// </summary>
+        /// <param name="id">Id da localização a eliminar</param>
+        /// <returns>True caso eliminada, false caso contrário</returns>
         public bool HardDeleteLocalizacao(string id)
         {
             try
@@ -153,6 +180,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Adiciona uma localização
+        /// </summary>
+        /// <param name="localizacao">Localização a adicionar</param>
+        /// <returns>Id nova localização</returns>
         public int AddLocalizacao(Localizacao localizacao)
         {
             try
@@ -176,6 +208,10 @@ namespace HealthSearch
 
         #region Prestador
 
+        /// <summary>
+        /// Devolve todos os prestadores
+        /// </summary>
+        /// <returns>Lista de prestadores</returns>
         public List<Prestador> GetAllPrestador()
         {
             try
@@ -191,6 +227,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Devolve os prestadores por id
+        /// </summary>
+        /// <param name="id">Id do prestador</param>
+        /// <returns>Prestador</returns>
         public Prestador GetPrestadorById(string id)
         {
             try
@@ -208,6 +249,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Devolve os prestadores por serviço
+        /// </summary>
+        /// <param name="id">Id do serviço</param>
+        /// <returns>Lista de prestadores</returns>
         public List<Prestador> GetPestadorByServico(string id)
         {
             List<Prestador> aux = new List<Prestador>();
@@ -242,6 +288,14 @@ namespace HealthSearch
             return aux;
         }
 
+        /// <summary>
+        /// Devolve os prestadores pela localização
+        /// </summary>
+        /// <param name="pais">Pais a procurar</param>
+        /// <param name="regiao">Região a procurar</param>
+        /// <param name="distrito">Distrito a procurar</param>
+        /// <param name="concelho">Concelho a procurar</param>
+        /// <returns>Lista de prestadores</returns>
         public List<Prestador> GetPestadorByLocalizacaoo(string pais = null, string regiao = null,
                             string distrito = null, string concelho = null)
         {
@@ -284,6 +338,11 @@ namespace HealthSearch
             return aux;
         }
 
+        /// <summary>
+        /// Actualiza dados do prestador
+        /// </summary>
+        /// <param name="prestador">Prestador actualizado</param>
+        /// <returns>True caso actualiza, false caso contrário</returns>
         public bool UpdatePrestador(Prestador prestador)
         {
             try
@@ -311,6 +370,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Marca prestador como eliminado
+        /// </summary>
+        /// <param name="id">Id do restador a marcar</param>
+        /// <returns>True caso actualiza, false caso contrário<</returns>
         public bool DeletePrestador (string id)
         {
             try
@@ -352,6 +416,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Elimina registo do prestador da base de dados
+        /// </summary>
+        /// <param name="id">Id do prestador a eliminar</param>
+        /// <returns>True caso elimina, false caso contrário<</returns>
         public bool HardDeletePrestador(string id)
         {
             try
@@ -373,6 +442,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Adiciona novo prestador
+        /// </summary>
+        /// <param name="prestador">Prestador a adicionar</param>
+        /// <returns>Id novo prestador</returns>
         public int AddPrestador(Prestador prestador)
         {
             try
@@ -396,6 +470,10 @@ namespace HealthSearch
 
         #region Servico
 
+        /// <summary>
+        /// Devolve todos os serviços
+        /// </summary>
+        /// <returns>Lista de serviços</returns>
         public List<Servico> GetAllServico()
         {
             try
@@ -411,6 +489,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Devolve serviço por id
+        /// </summary>
+        /// <param name="id">Id do serviço a pesquisar</param>
+        /// <returns>Serviço devolvido</returns>
         public Servico GetServicoById(string id)
         {
             try
@@ -428,6 +511,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Actualiza um serviço
+        /// </summary>
+        /// <param name="servico">Serviço actualizado</param>
+        /// <returns>True caso actualiza, false caso contrário</returns>
         public bool UpdateServico (Servico servico)
         {
             try
@@ -452,6 +540,11 @@ namespace HealthSearch
             }
         }
 
+        /// <summary>
+        /// Marca serviço como eliminado
+        /// </summary>
+        /// <param name="id">Id do serviço a marcar</param>
+        /// <returns>True caso marque, false caso contrário</returns>
         public bool DeleteServico(string id)
         {
             try
@@ -493,6 +586,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Remove o serviço da base de dados
+        /// </summary>
+        /// <param name="id">Id do serviço a remover</param>
+        /// <returns>True caso remova, false caso contrário</returns>
         public bool HardDeleteServico(string id)
         {
             try
@@ -514,6 +612,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Adiciona novo serviço na base de dados
+        /// </summary>
+        /// <param name="servico">Serviço a adicionar</param>
+        /// <returns>Id do novo serviço</returns>
         public int AddServico(Servico servico)
         {
             try
@@ -537,6 +640,11 @@ namespace HealthSearch
 
         #region PrestadorServico
 
+        /// <summary>
+        /// Marca um registo como eliminado
+        /// </summary>
+        /// <param name="prestadorServico">serviço a marcar</param>
+        /// <returns>True caso marque, false caso contrário</returns>
         private bool DeletePrestadorServico (string id)
         {
             try
@@ -564,6 +672,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Marca um registo como eliminado
+        /// </summary>
+        /// <param name="prestadorServico">serviço a marcar</param>
+        /// <returns>True caso marque, false caso contrário</returns>
         private bool DeleteServicoPrestador(string id)
         {
             try
@@ -591,6 +704,11 @@ namespace HealthSearch
             return true;
         }
 
+        /// <summary>
+        /// Adiciona prestador Serviço
+        /// </summary>
+        /// <param name="prestadorServico">Prestador serviço</param>
+        /// <returns>True caso adicione</returns>
         public bool AddPrestadorServico(PrestadorServico prestadorServico)
         {
             try
@@ -614,6 +732,11 @@ namespace HealthSearch
 
         #region Manutenção
 
+        /// <summary>
+        /// Limpa todos os registos da base de dados que estão marcados como eliminados
+        /// </summary>
+        /// <param name="data">Data a partir da qual está marcada como eliminada</param>
+        /// <returns>-1 em caso de sucesso</returns>
         public int LimparTabelas(string data)
         {
             try
