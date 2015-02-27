@@ -26,7 +26,7 @@ namespace HealthSearch
             {
                 using (var db = new HealthSearchEntitiesLocalizacao())
                 {
-                    return db.Localizacao.ToList();
+                    return db.Localizacao.Where(p => p.eliminado == null).ToList();
                 }
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace HealthSearch
 
                 using (var db = new HealthSearchEntitiesLocalizacao())
                 {
-                    return db.Localizacao.SingleOrDefault(p => p.id == localizacaoId);
+                    return db.Localizacao.SingleOrDefault(p => p.id == localizacaoId & p.eliminado == null);
                 }
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace HealthSearch
                 using (var db = new HealthSearchEntitiesLocalizacao())
                 {
 
-                    Localizacao aux = db.Localizacao.SingleOrDefault(p => p.id == localizacao.id);
+                    Localizacao aux = db.Localizacao.SingleOrDefault(p => p.id == localizacao.id & p.eliminado == null);
 
                     aux.pais = localizacao.pais;
                     aux.regiao = localizacao.regiao;
@@ -100,7 +100,7 @@ namespace HealthSearch
                 using (var dbLocalizacao = new HealthSearchEntitiesLocalizacao())
                 {
                     int localizacaoId = Convert.ToInt32(id);
-                    Localizacao aux = dbLocalizacao.Localizacao.SingleOrDefault(p => p.id == localizacaoId);
+                    Localizacao aux = dbLocalizacao.Localizacao.SingleOrDefault(p => p.id == localizacaoId & p.eliminado == null);
 
                     aux.eliminado = DateTime.Now;
 
@@ -110,7 +110,7 @@ namespace HealthSearch
                     using (var dbPrestadores = new HealthSearchEntitiesPrestador())
                     {
                         var prestList = from prestador in dbPrestadores.Prestador.ToList()
-                                        where prestador.idLocalizacao == localizacaoId
+                                        where prestador.idLocalizacao == localizacaoId & prestador.eliminado == null
                                         select prestador;
 
                         foreach (var prestador in prestList)
@@ -123,7 +123,7 @@ namespace HealthSearch
                                 using (var dbPrestadoresServicos = new HealthSearchEntitiesPrestadorServico())
                                 {
                                     var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
-                                                        where prestadorServico.idPrestador == prestador.id
+                                                        where prestadorServico.idPrestador == prestador.id & prestadorServico.eliminado == null
                                                         select prestadorServico;
 
                                     foreach (var prestServ in prestServList)
@@ -218,7 +218,7 @@ namespace HealthSearch
             {
                 using (var db = new HealthSearchEntitiesPrestador())
                 {
-                    return db.Prestador.ToList();
+                    return db.Prestador.Where(p => p.eliminado == null).ToList();
                 }
             }
             catch (Exception ex)
@@ -240,7 +240,7 @@ namespace HealthSearch
 
                 using (var db = new HealthSearchEntitiesPrestador())
                 {
-                    return db.Prestador.SingleOrDefault(p => p.id == prestadorId);
+                    return db.Prestador.SingleOrDefault(p => p.id == prestadorId & p.eliminado == null);
                 }
             }
             catch (Exception ex)
@@ -263,7 +263,7 @@ namespace HealthSearch
                 using (var db = new HealthSearchEntitiesPrestadorServico())
                 {
                     var prestList = from prestServ in db.PrestadorServico
-                                    where prestServ.idServico == servicoId
+                                    where prestServ.idServico == servicoId & prestServ.eliminado == null
                                     select prestServ.Prestador;
 
                     foreach (Prestador prest in prestList)
@@ -305,6 +305,7 @@ namespace HealthSearch
                 using (var db = new HealthSearchEntitiesVwPrestadorLocalizacao())
                 {
                     var prestList = from prest in db.VwPrestadorLocalizacao
+                                    where prest.eliminado == null
                                     select prest;
 
                     if (!string.IsNullOrWhiteSpace(pais))
@@ -350,7 +351,7 @@ namespace HealthSearch
                 using (var db = new HealthSearchEntitiesPrestador())
                 {
 
-                    Prestador aux = db.Prestador.SingleOrDefault(p => p.id == prestador.id);
+                    Prestador aux = db.Prestador.SingleOrDefault(p => p.id == prestador.id & p.eliminado == null);
 
                     aux.eliminado = prestador.eliminado;
                     aux.email = prestador.email;
@@ -382,7 +383,7 @@ namespace HealthSearch
                 using (var db = new HealthSearchEntitiesPrestador())
                 {
                     int prestadorId = Convert.ToInt32(id);
-                    Prestador aux = db.Prestador.SingleOrDefault(p => p.id == prestadorId);
+                    Prestador aux = db.Prestador.SingleOrDefault(p => p.id == prestadorId & p.eliminado == null);
 
                     aux.eliminado = DateTime.Now;
 
@@ -480,7 +481,7 @@ namespace HealthSearch
             {
                 using (var db = new HealthSearchEntitiesServico())
                 {
-                    return db.Servico.ToList();
+                    return db.Servico.Where(p => p.eliminado == null).ToList();
                 }
             }
             catch (Exception ex)
@@ -502,7 +503,7 @@ namespace HealthSearch
 
                 using (var db = new HealthSearchEntitiesServico())
                 {
-                    return db.Servico.SingleOrDefault(p => p.id == servicoId);
+                    return db.Servico.SingleOrDefault(p => p.id == servicoId & p.eliminado == null);
                 }
             }
             catch (Exception ex)
@@ -523,7 +524,7 @@ namespace HealthSearch
                 using (var db = new HealthSearchEntitiesServico())
                 {
 
-                    Servico aux = db.Servico.SingleOrDefault(p => p.id == servico.id);
+                    Servico aux = db.Servico.SingleOrDefault(p => p.id == servico.id & p.eliminado == null);
 
                     aux.codigo = servico.codigo;
                     aux.descricao = servico.descricao;
@@ -552,7 +553,7 @@ namespace HealthSearch
                 using (var db = new HealthSearchEntitiesServico())
                 {
                     int servicoId = Convert.ToInt32(id);
-                    Servico aux = db.Servico.SingleOrDefault(p => p.id == servicoId);
+                    Servico aux = db.Servico.SingleOrDefault(p => p.id == servicoId & p.eliminado == null);
 
                     aux.eliminado = DateTime.Now;
 
@@ -562,7 +563,7 @@ namespace HealthSearch
                     using (var dbPrestadoresServicos = new HealthSearchEntitiesPrestadorServico())
                     {
                         var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
-                                            where prestadorServico.idServico == servicoId
+                                            where prestadorServico.idServico == servicoId & prestadorServico.eliminado == null
                                             select prestadorServico;
 
                         foreach (var prestServ in prestServList)
@@ -654,7 +655,7 @@ namespace HealthSearch
                 {
                     int prestadorServicoId = Convert.ToInt32(id);
                     var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
-                                        where prestadorServico.idPrestador == prestadorServicoId
+                                        where prestadorServico.idPrestador == prestadorServicoId & prestadorServico.eliminado == null
                                         select prestadorServico;
 
                     foreach (var prestServ in prestServList)
@@ -686,7 +687,7 @@ namespace HealthSearch
                 {
                     int prestadorServicoId = Convert.ToInt32(id);
                     var prestServList = from prestadorServico in dbPrestadoresServicos.PrestadorServico.ToList()
-                                        where prestadorServico.idServico == prestadorServicoId
+                                        where prestadorServico.idServico == prestadorServicoId & prestadorServico.eliminado == null
                                         select prestadorServico;
 
                     foreach (var prestServ in prestServList)
