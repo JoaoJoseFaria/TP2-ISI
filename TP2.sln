@@ -7,8 +7,6 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "TP2", "TP2\TP2.ccproj", "{0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthSearch", "HealthSearch\HealthSearch.csproj", "{2E6DC41D-D59D-4790-8213-78C0B78D5299}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthSearchWepApp", "HealthSearchWepApp\HealthSearchWepApp.csproj", "{F2D71514-93D0-4A59-95C9-102C29382037}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{2E6DC41D-D59D-4790-8213-78C0B78D5299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E6DC41D-D59D-4790-8213-78C0B78D5299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E6DC41D-D59D-4790-8213-78C0B78D5299}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2D71514-93D0-4A59-95C9-102C29382037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2D71514-93D0-4A59-95C9-102C29382037}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2D71514-93D0-4A59-95C9-102C29382037}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2D71514-93D0-4A59-95C9-102C29382037}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
