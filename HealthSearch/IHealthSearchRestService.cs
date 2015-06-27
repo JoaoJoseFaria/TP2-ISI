@@ -25,7 +25,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Xml")]
         List<Prestador> GetAllPrestadorXml();
 
@@ -37,7 +37,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/{id}/Xml")]
         Prestador GetPrestadorByIdXml(string id);
 
@@ -49,7 +49,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/servico/{id}/Xml")]
         List<Prestador> GetPestadorByServicoXml(string id);
 
@@ -64,7 +64,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/PrestadoresLocalizacao/Xml?pais={pais}&regiao={regiao}&distrito={distrito}&concelho={concelho}")]
         List<Prestador> GetPestadorByLocalizacaoXml(string pais = null, string regiao = null,
                             string distrito = null, string concelho = null);
@@ -77,7 +77,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Xml")]
         bool UpdatePrestadorXml(Prestador prestador);
 
@@ -89,7 +89,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/{id}/Xml")]
         bool DeletePrestadorXml(string id);
 
@@ -101,7 +101,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Hard/{id}/Xml")]
         bool HardDeletePrestadorXml(string id);
 
@@ -113,7 +113,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Xml")]
         int AddPrestadorXml(Prestador prestador);
 
@@ -128,7 +128,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Xml")]
         List<Localizacao> GetAllLocalizacaoXml();
 
@@ -140,7 +140,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/{id}/Xml")]
         Localizacao GetLocalizacaoByIdXml(string id);
 
@@ -152,7 +152,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Xml")]
         bool UpdateLocalizacaoXml(Localizacao localizacao);
 
@@ -164,7 +164,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/{id}/Xml")]
         bool DeleteLocalizacaoXml(string id);
 
@@ -176,7 +176,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Hard/{id}/Xml")]
         bool HardDeleteLocalizacaoXml(string id);
 
@@ -188,7 +188,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Xml")]
         int AddLocalizacaoXml(Localizacao localizacao);
 
@@ -203,7 +203,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Xml")]
         List<Servico> GetAllServicoXml();
 
@@ -215,7 +215,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/{id}/Xml")]
         Servico GetServicoByIdXml(string id);
 
@@ -227,7 +227,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Xml")]
         bool UpdateServicoXml(Servico servico);
 
@@ -239,7 +239,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/{id}/Xml")]
         bool DeleteServicoXml(string id);
 
@@ -251,7 +251,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Hard/{id}/Xml")]
         bool HardDeleteServicoXml(string id);
 
@@ -263,7 +263,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Xml")]
         int AddServicoXml(Servico servico);
 
@@ -279,7 +279,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/PrestadorServico/Xml")]
         bool AddPrestadorServicoXml(PrestadorServico prestadorServico);
 
@@ -295,7 +295,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Xml,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/LimparTabelas/{data}/Xml")]
         int LimparTabelasXml(string data);
 
@@ -314,7 +314,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Json")]
         List<Prestador> GetAllPrestadorJson();
 
@@ -326,7 +326,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/{id}/Json")]
         Prestador GetPrestadorByIdJson(string id);
 
@@ -338,7 +338,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/servico/{id}/Json")]
         List<Prestador> GetPestadorByServicoJson(string id);
 
@@ -353,7 +353,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/PrestadoresLocalizacao/Json?pais={pais}&regiao={regiao}&distrito={distrito}&concelho={concelho}")]
         List<Prestador> GetPestadorByLocalizacaoJson(string pais = null, string regiao = null,
                             string distrito = null, string concelho = null);
@@ -366,7 +366,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Json")]
         bool UpdatePrestadorJson(Prestador prestador);
 
@@ -378,7 +378,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/{id}/Json")]
         bool DeletePrestadorJson(string id);
 
@@ -390,7 +390,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Hard/{id}/Json")]
         bool HardDeletePrestadorJson(string id);
 
@@ -402,7 +402,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Prestadores/Json")]
         int AddPrestadorJson(Prestador prestador);
 
@@ -417,7 +417,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Json")]
         List<Localizacao> GetAllLocalizacaoJson();
 
@@ -429,7 +429,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/{id}/Json")]
         Localizacao GetLocalizacaoByIdJson(string id);
 
@@ -441,7 +441,8 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Json")]
         bool UpdateLocalizacaoJson(Localizacao localizacao);
 
@@ -453,7 +454,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/{id}/Json")]
         bool DeleteLocalizacaoJson(string id);
 
@@ -465,7 +466,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Hard/{id}/Json")]
         bool HardDeleteLocalizacaoJson(string id);
 
@@ -477,7 +478,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Localizacao/Json")]
         int AddLocalizacaoJson(Localizacao localizacao);
 
@@ -492,7 +493,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Json")]
         List<Servico> GetAllServicoJson();
 
@@ -504,7 +505,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/{id}/Json")]
         Servico GetServicoByIdJson(string id);
 
@@ -516,7 +517,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Json")]
         bool UpdateServicoJson(Servico servico);
 
@@ -528,7 +529,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "DELETE",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/{id}/Json")]
         bool DeleteServicoJson(string id);
 
@@ -540,7 +541,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Hard/{id}/Json")]
         bool HardDeleteServicoJson(string id);
 
@@ -552,7 +553,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "POST",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/Servico/Json")]
         int AddServicoJson(Servico servico);
 
@@ -568,7 +569,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "PUT",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/PrestadorServico/Json")]
         bool AddPrestadorServicoJson(PrestadorServico prestadorServico);
 
@@ -584,7 +585,7 @@ namespace HealthSearch
         [OperationContract]
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             UriTemplate = "/LimparTabelas/{data}/Json")]
         int LimparTabelasJson(string data);
 

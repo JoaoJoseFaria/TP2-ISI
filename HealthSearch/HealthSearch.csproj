@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -281,7 +282,9 @@
       <DependentUpon>ViewVwPrestadorLocalizacao.edmx</DependentUpon>
       <LastGenOutput>ViewVwPrestadorLocalizacao.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <EntityDeploy Include="ModelLocalizacao.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelLocalizacao.Designer.cs</LastGenOutput>
@@ -324,6 +327,8 @@
     <Content Include="StoredProcedureSpLimparTabelas.edmx.diagram">
       <DependentUpon>StoredProcedureSpLimparTabelas.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\HealthSearch - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\HealthSearch - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
